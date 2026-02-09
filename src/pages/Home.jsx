@@ -22,7 +22,7 @@ export default function Home() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                        href="/projects"
+                        href="/Projects"
                         className="px-6 py-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition"
                     >
                         Lihat Project
