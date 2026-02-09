@@ -19,6 +19,24 @@ const projects = [
         tech: ["Python", "OpenCV", "Mediapipe"],
         link: "https://github.com/Taufikh1dayat/faceRecognition",
     },
+    {
+        title: "Website Kedai Kopi",
+        description: "Website kedai kopi menggunakan HTML, CSS, dan Vanilla JavaScript.",
+        tech: ["HTML", "CSS", "JavaScript"],
+        link: "https://github.com/Taufikh1dayat/kedai-kopi-kelayu/tree/main/Kedai-Kopi-Kelayu",
+    },
+    {
+        title: "To-do List App",
+        description: "Aplikasi to-do list sederhana menggunakan HTML, CSS, dan Vanilla JavaScript.",
+        tech: ["HTML", "CSS", "JavaScript"],
+        link: "https://github.com/Taufikh1dayat/To-do-list",
+    },
+    {
+        title: "Cuaca App",
+        description: "Website pemantau cuaca sederhana menggunakan HTML, CSS, dan Vanilla JavaScript. Data cuaca diambil dari OpenWeather API.",
+        tech: ["HTML", "CSS", "JavaScript"],
+        link: "https://github.com/Taufikh1dayat/cuaca",
+    },
 ];
 
 export default function Projects() {
