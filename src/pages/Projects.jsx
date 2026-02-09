@@ -5,7 +5,7 @@ const projects = [
         title: "Website Portofolio",
         description: "Website portofolio personal menggunakan React dan Tailwind CSS.",
         tech: ["React", "Tailwind", "Vite"],
-        link: "",
+        link: "https://web-portofolio-two-rouge.vercel.app/",
     },
     {
         title: "Skripsi Assistant AI Dekstop App",
@@ -41,12 +41,12 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section className="min-h-screen bg-black px-8 py-16">
+        <section className="min-h-screen bg-black px-4 md:px-8 py-16 pt-28">
             <h1 className="text-4xl font-bold text-white mb-10">
                 Projects
             </h1>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects.map((project, index) => (
                     <ProjectCard key={index} {...project} />
                 ))}

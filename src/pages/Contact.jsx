@@ -2,9 +2,9 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
     return (
-        <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-indigo-950 px-8 py-20 text-white">
+        <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-indigo-950 px-4 md:px-8 py-20 pt-28 text-white">
             <div className="max-w-3xl">
-                <h1 className="text-4xl font-bold mb-6">Contact</h1>
+                <h1 className="text-3xl md:text-4xl font-bold mb-6">Contact</h1>
 
                 <p className="text-gray-300 mb-10">
                     Tertarik bekerja sama atau ingin berdiskusi?
@@ -40,7 +40,7 @@ export default function Contact() {
                         className="flex items-center gap-4 p-4 bg-gray-900 border border-gray-800 rounded-xl hover:border-indigo-500 transition"
                     >
                         <FaLinkedin className="text-2xl text-indigo-400" />
-                        <span>linkedin.com/in/usernamekamu</span>
+                        <span>linkedin.com/in/M. Taufik Hidayat</span>
                     </a>
                 </div>
             </div>

@@ -10,8 +10,8 @@ export default function About() {
     ];
 
     return (
-        <section className="min-h-screen bg-black px-8 py-16 text-white">
-            <h1 className="text-4xl font-bold mb-8">About Me</h1>
+        <section className="min-h-screen bg-black px-4 md:px-8 py-16 pt-28 text-white">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8">About Me</h1>
 
             <p className="max-w-2xl text-gray-300 mb-10 leading-relaxed">
                 Saya adalah seorang frontend developer yang fokus membangun antarmuka
