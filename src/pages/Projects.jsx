@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import ProjectCard from "../components/Card.jsx";
+
 
 const projects = [
     {
@@ -39,17 +41,51 @@ const projects = [
     },
 ];
 
+// export default function Projects() {
+//     return (
+//         <section className="min-h-screen bg-black px-4 md:px-8 py-16 pt-28">
+
+//             {/* Back Button (Mobile Friendly) */}
+//             <Link
+//                 to="/"
+//                 className="inline-flex items-center gap-2 text-indigo-400 mb-6 hover:text-indigo-300"
+//             >
+//                 ← Kembali
+//             </Link>
+
+//             <h1 className="text-4xl font-bold text-white mb-10">
+//                 Projects
+//             </h1>
+
+//             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//                 {projects.map((project, index) => (
+//                     <ProjectCard key={index} {...project} />
+//                 ))}
+//             </div>
+//         </section>
+//     );
+// }
+
 export default function Projects() {
     return (
-        <section className="min-h-screen bg-black px-4 md:px-8 py-16 pt-28">
-            <h1 className="text-4xl font-bold text-white mb-10">
-                Projects
-            </h1>
+        <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-indigo-950 pt-28">
+            <div className="max-w-7xl mx-auto px-6 md:px-10 text-white">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
-                ))}
+                {/* <Link
+                    to="/"
+                    className="inline-flex items-center gap-2 text-indigo-400 mb-8 hover:text-indigo-300"
+                >
+                    ← Kembali
+                </Link> */}
+
+                <h1 className="text-4xl font-bold mb-10">Projects</h1>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {projects.map((project, index) => (
+                        <ProjectCard key={index} {...project} />
+                    ))}
+                </div>
+
             </div>
         </section>
     );
