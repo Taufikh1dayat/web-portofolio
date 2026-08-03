@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import NavbarRoot from "./components/NavbarRoot";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import BackgroundParticles from "./components/BackgroundParticles";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -10,6 +11,7 @@ import Contact from "./pages/Contact";
 export default function App() {
   return (
     <>
+      <BackgroundParticles />
       <NavbarRoot />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,4 +24,3 @@ export default function App() {
     </>
   );
 }
-
