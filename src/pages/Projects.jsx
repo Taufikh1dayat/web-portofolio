@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProjectCard from "../components/Card.jsx";
 import useInView from "../hooks/useInView";
 
@@ -5,48 +6,55 @@ const projects = [
   {
     title: "Modern Blog",
     description: "Blog personal modern dengan performa tinggi, dibangun menggunakan Astro dan MDX.",
+    category: "Web Application",
     tech: ["Astro", "MDX", "TypeScript", "CSS", "JavaScript"],
     link: "https://modern-blog-taufikdev.vercel.app/",
     image: null,
   },
   {
     title: "Website Portofolio",
-    description: "Website portofolio personal menggunakan React dan Tailwind CSS.",
+    description: "Website portofolio personal interaktif menggunakan React 19 dan Tailwind CSS v3.",
+    category: "Web Application",
     tech: ["React", "Tailwind", "Vite"],
     link: "https://web-portofolio-two-rouge.vercel.app/",
     image: null,
   },
   {
     title: "Skripsi Assistant AI Desktop App",
-    description: "Aplikasi desktop berbasis AI untuk membantu pembuatan skripsi.",
+    description: "Aplikasi desktop berbasis AI dengan Groq API untuk membantu penyusunan dan analisa skripsi.",
+    category: "AI & Desktop",
     tech: ["Python", "Tkinter", "Groq API", "Sqlite", "Matplotlib", "ReportLab"],
     link: "https://github.com/Taufikh1dayat/skripsi-assistant-ai",
     image: null,
   },
   {
     title: "Face & Hand Detector",
-    description: "Deteksi wajah dan tangan dengan fitur menggambar real-time.",
+    description: "Deteksi wajah dan tangan real-time dengan gesture tracking & fitur menggambar kanvas.",
+    category: "Computer Vision",
     tech: ["Python", "OpenCV", "Mediapipe"],
     link: "https://github.com/Taufikh1dayat/faceRecognition",
     image: null,
   },
   {
     title: "Website Kedai Kopi",
-    description: "Landing page modern untuk kedai kopi dengan vanilla JS.",
+    description: "Landing page modern dan responsif untuk kedai kopi dengan animasi JS murni.",
+    category: "Frontend",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/Taufikh1dayat/kedai-kopi-kelayu/tree/main/Kedai-Kopi-Kelayu",
     image: null,
   },
   {
     title: "To-do List App",
-    description: "Aplikasi to-do list sederhana dengan fitur CRUD.",
+    description: "Aplikasi manajemen tugas/to-do list sederhana dengan persistent storage & CRUD lengkap.",
+    category: "Web Application",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/Taufikh1dayat/To-do-list",
     image: null,
   },
   {
     title: "Cuaca App",
-    description: "Pemantau cuaca real-time dari OpenWeather API.",
+    description: "Aplikasi pemantau prakiraan cuaca real-time yang terhubung ke OpenWeather API.",
+    category: "Web Application",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/Taufikh1dayat/cuaca",
     image: null,
@@ -74,9 +82,17 @@ const techColors = {
   "Git": "from-red-500 to-orange-600",
 };
 
+const categories = ["Semua", "Web Application", "AI & Desktop", "Computer Vision", "Frontend"];
+
 export default function Projects() {
   const [titleRef, titleVis] = useInView();
   const [gridRef, gridVis] = useInView();
+  const [activeCategory, setActiveCategory] = useState("Semua");
+
+  const filteredProjects =
+    activeCategory === "Semua"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
@@ -98,7 +114,7 @@ export default function Projects() {
         {/* Title */}
         <div
           ref={titleRef}
-          className={`transition-all duration-700 mb-12 ${
+          className={`transition-all duration-700 mb-8 ${
             titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -106,18 +122,38 @@ export default function Projects() {
             Work
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold">
-            Projects
+            Projects & Karya
           </h2>
+          <p className="text-muted mt-2 text-sm max-w-xl">
+            Kumpulan proyek pengembangan web, aplikasi desktop berbasis AI, dan komputasi visi yang telah saya bangun.
+          </p>
+        </div>
+
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200 ${
+                activeCategory === cat
+                  ? "bg-accent text-base-900 font-semibold shadow-md shadow-accent/20"
+                  : "bg-base-800/80 text-muted hover:text-gray-200 border border-base-600/50 hover:bg-base-700/60"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
         {/* Grid */}
         <div
           ref={gridRef}
-          className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-700 delay-200 ${
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 delay-100 ${
             gridVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <ProjectCard
               key={index}
               {...project}

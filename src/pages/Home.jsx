@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Avatar from "../components/Avatar";
 import useInView from "../hooks/useInView";
 
@@ -25,13 +26,22 @@ export default function Home() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 min-h-[calc(100vh-7rem)] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-        {/* Avatar */}
+        {/* Avatar Portrait Card */}
         <div className="shrink-0 animate-fade-in">
-          <Avatar name="TH" size={180} />
+          <Avatar width={280} height={340} />
         </div>
 
         {/* Text */}
         <div className="max-w-2xl text-center lg:text-left">
+          {/* Availability Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Available for work / freelance
+          </div>
+
           <div
             ref={titleRef}
             className={`transition-all duration-700 delay-100 ${
@@ -61,27 +71,53 @@ export default function Home() {
 
           <div
             ref={ctaRef}
-            className={`transition-all duration-700 delay-500 mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ${
+            className={`transition-all duration-700 delay-500 mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start ${
               ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
             <Link
               to="/projects"
-              className="px-6 py-3 bg-accent text-base-900 font-semibold rounded-xl hover:bg-accent-light transition-all duration-200 active:scale-[0.97]"
+              className="w-full sm:w-auto text-center px-6 py-3 bg-accent text-base-900 font-semibold rounded-xl hover:bg-accent-light transition-all duration-200 active:scale-[0.97]"
             >
               Lihat Project
             </Link>
-            <a
-              href="https://linkedin.com/in/m-taufik-hidayat-051541240"
-              target="_blank"
-              rel="noreferrer"
-              className="px-6 py-3 border border-accent/40 text-accent font-medium rounded-xl hover:bg-accent/10 transition-all duration-200 active:scale-[0.97]"
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto text-center px-6 py-3 border border-accent/40 text-accent font-medium rounded-xl hover:bg-accent/10 transition-all duration-200 active:scale-[0.97]"
             >
               Hubungi Saya
-            </a>
+            </Link>
+            <div className="flex items-center gap-3 ml-0 sm:ml-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-base-600/40 w-full sm:w-auto justify-center">
+              <a
+                href="https://github.com/Taufikh1dayat"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-xl bg-base-800/80 border border-base-600/50 text-muted hover:text-accent hover:border-accent/40 transition-all"
+                aria-label="GitHub"
+              >
+                <FaGithub size={18} />
+              </a>
+              <a
+                href="https://linkedin.com/in/m-taufik-hidayat-051541240"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-xl bg-base-800/80 border border-base-600/50 text-muted hover:text-accent hover:border-accent/40 transition-all"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={18} />
+              </a>
+              <a
+                href="mailto:dayattaufik078@gmail.com"
+                className="p-3 rounded-xl bg-base-800/80 border border-base-600/50 text-muted hover:text-accent hover:border-accent/40 transition-all"
+                aria-label="Email"
+              >
+                <FaEnvelope size={18} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
