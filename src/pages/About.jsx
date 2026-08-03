@@ -7,6 +7,7 @@ const skills = [
   { name: "JavaScript (ES6+)", level: 85 },
   { name: "React JS", level: 80 },
   { name: "Tailwind CSS", level: 85 },
+  { name: "Artificial Intelligence", level: 80 },
   { name: "Python", level: 75 },
   { name: "Git & GitHub", level: 75 },
   { name: "Astro", level: 70 },
@@ -15,21 +16,21 @@ const skills = [
 const highlights = [
   {
     icon: FaCode,
-    number: "7+",
+    number: "8+",
     title: "Proyek Selesai",
-    desc: "Aplikasi Web & Desktop",
+    desc: "Aplikasi Web & AI Desktop",
   },
   {
     icon: FaProjectDiagram,
-    number: "5+",
+    number: "6+",
     title: "Teknologi Utama",
-    desc: "React, Tailwind, Python, dll",
+    desc: "React, AI, Tailwind, Python, dll",
   },
   {
     icon: FaGraduationCap,
     number: "100%",
     title: "Komitmen Belajar",
-    desc: "Teknologi Web Modern",
+    desc: "Teknologi Web Modern & AI",
   },
 ];
 
@@ -81,7 +82,7 @@ export default function About() {
             <Avatar width={240} height={290} className="shrink-0 mb-4 sm:mb-0" />
             <div className="space-y-4 text-center sm:text-left">
               <p className="text-muted text-base leading-relaxed">
-                Saya adalah seorang <strong className="text-gray-100 font-semibold">Frontend Developer</strong> yang berdedikasi membangun antarmuka website modern, responsif, dan performan. Berbekal keahlian di ekosistem <strong className="text-accent">React JS</strong> dan <strong className="text-accent">Tailwind CSS</strong>, saya merancang pengalaman pengguna yang interaktif dan nyaman dilihat.
+                Saya adalah seorang <strong className="text-gray-100 font-semibold">Frontend Developer</strong> yang berdedikasi membangun antarmuka website modern, responsif, dan performan. Berbekal keahlian di ekosistem <strong className="text-accent">React JS</strong>, <strong className="text-accent">Tailwind CSS</strong>, dan integrasi <strong className="text-accent">Artificial Intelligence</strong>, saya merancang pengalaman pengguna yang interaktif.
               </p>
               <p className="text-muted text-base leading-relaxed">
                 Selain pengembangkan web, saya juga berpengalaman mengeksplorasi bahasa <strong className="text-gray-100 font-semibold">Python</strong> untuk aplikasi desktop AI (Groq API) dan pemrosesan Komputer Visi (*Mediapipe & OpenCV*).

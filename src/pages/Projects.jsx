@@ -4,6 +4,14 @@ import useInView from "../hooks/useInView";
 
 const projects = [
   {
+    title: "Web Analytics Platform",
+    description: "Platform analitik web modern interaktif untuk memantau pengunjung, visualisasi metrik real-time, dan insight performa situs.",
+    category: "Web Application",
+    tech: ["React", "Tailwind", "JavaScript", "Chart.js"],
+    link: "https://github.com/Taufikh1dayat/web_analytics",
+    image: null,
+  },
+  {
     title: "Modern Blog",
     description: "Blog personal modern dengan performa tinggi, dibangun menggunakan Astro dan MDX.",
     category: "Web Application",
@@ -79,6 +87,7 @@ const techColors = {
   "MDX": "from-cyan-400 to-blue-500",
   "TypeScript": "from-blue-500 to-indigo-600",
   "JavaScript": "from-yellow-400 to-amber-500",
+  "Chart.js": "from-rose-500 to-amber-500",
   "Git": "from-red-500 to-orange-600",
 };
 
