@@ -85,7 +85,7 @@ export default function About() {
                 Saya adalah seorang <strong className="text-gray-100 font-semibold">Frontend Developer</strong> yang berdedikasi membangun antarmuka website modern, responsif, dan performan. Berbekal keahlian di ekosistem <strong className="text-accent">React JS</strong>, <strong className="text-accent">Tailwind CSS</strong>, dan integrasi <strong className="text-accent">Artificial Intelligence</strong>, saya merancang pengalaman pengguna yang interaktif.
               </p>
               <p className="text-muted text-base leading-relaxed">
-                Selain pengembangkan web, saya juga berpengalaman mengeksplorasi bahasa <strong className="text-gray-100 font-semibold">Python</strong> untuk aplikasi desktop AI (Groq API) dan pemrosesan Komputer Visi (*Mediapipe & OpenCV*).
+                Selain pengembangan web, saya juga berpengalaman mengeksplorasi bahasa <strong className="text-gray-100 font-semibold">Python</strong> pemrosesan data real-time scraping, dan analisa otomatis cyberbullying dengan melatih algoritma agar bisa mengetahui mana yang salah dan benar, lalu menambahkan LLM untuk analisa lebih tertata dan mendalam.
               </p>
               <p className="text-muted text-base leading-relaxed">
                 Saya selalu bersemangat mempelajari teknologi baru, mengikuti best practices pengembangan perangkat lunak, dan siap berkontribusi dalam proyek-proyek yang menantang.
