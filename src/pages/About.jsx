@@ -43,6 +43,25 @@ const highlights = [
   },
 ];
 
+const certificates = [
+  {
+    title: "Belajar Dasar Pemrograman Web",
+    issuer: "Dicoding Indonesia",
+    badge: "Web Development",
+    description: "Sertifikasi kelulusan resmi dalam kurikulum pengembangan web dari Dicoding Indonesia. Membuktikan penguasaan standar dasar HTML5, CSS3, layouting responsif, dan best practices pembuatan website modern.",
+    pdf: "/sertifikat_course.pdf",
+    link: "https://www.dicoding.com/certificates/L4PQ51747ZO1",
+  },
+  {
+    title: "Memulai Pemrograman Dengan Python",
+    issuer: "Dicoding Indonesia",
+    badge: "Python & AI",
+    description: "Sertifikasi kelulusan resmi pemrograman Python dari Dicoding Indonesia. Membuktikan penguasaan logika dasar, tipe data, struktur kontrol alur, dan fungsi Python untuk pemrosesan data & pengembangan AI.",
+    pdf: "/sertifikat_course_python.pdf",
+    link: "https://www.dicoding.com/certificates/RVZK0DVLEZD5",
+  },
+];
+
 export default function About() {
   const [titleRef, titleVis] = useInView();
   const [bioRef, bioVis] = useInView();
@@ -177,47 +196,57 @@ export default function About() {
             Sertifikasi & Kredensial Resmi
           </h3>
 
-          <div className="p-6 md:p-8 rounded-2xl border border-base-600/50 bg-base-800/40 backdrop-blur-sm hover:border-accent/40 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex items-start gap-4">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-amber-600/10 border border-accent/30 text-accent shrink-0">
-                <FaCertificate size={32} />
-              </div>
-              <div className="space-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center gap-1">
-                    <FaCheckCircle size={10} /> Terverifikasi Resmi
-                  </span>
-                  <span className="text-xs text-muted font-mono">Dicoding Indonesia</span>
+          <div className="space-y-5">
+            {certificates.map((cert) => (
+              <div
+                key={cert.title}
+                className="p-6 md:p-8 rounded-2xl border border-base-600/50 bg-base-800/40 backdrop-blur-sm hover:border-accent/40 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-amber-600/10 border border-accent/30 text-accent shrink-0">
+                    <FaCertificate size={32} />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center gap-1">
+                        <FaCheckCircle size={10} /> Terverifikasi Resmi
+                      </span>
+                      <span className="text-xs text-muted font-mono">{cert.issuer}</span>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/10 text-accent border border-accent/20">
+                        {cert.badge}
+                      </span>
+                    </div>
+                    <h4 className="font-heading text-xl font-semibold text-gray-100">
+                      {cert.title}
+                    </h4>
+                    <p className="text-muted text-sm leading-relaxed max-w-2xl">
+                      {cert.description}
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-heading text-xl font-semibold text-gray-100">
-                  Belajar Dasar Pemrograman Web
-                </h4>
-                <p className="text-muted text-sm leading-relaxed max-w-2xl">
-                  Sertifikasi kelulusan resmi dalam kurikulum pengembangan web dari Dicoding Indonesia. Membuktikan penguasaan standar dasar HTML5, CSS3, layouting responsif, dan best practices pembuatan website modern.
-                </p>
-              </div>
-            </div>
 
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-base-600/40">
-              <a
-                href="/sertifikat_course.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-base-700/80 hover:bg-base-600 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 border border-base-600/60 transition-all"
-              >
-                <FaFilePdf size={14} className="text-red-400" />
-                Lihat PDF
-              </a>
-              <a
-                href="https://www.dicoding.com/certificates/L4PQ51747ZO1"
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-light text-base-900 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-accent/20"
-              >
-                <FaExternalLinkAlt size={12} />
-                Verifikasi Official
-              </a>
-            </div>
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-base-600/40">
+                  <a
+                    href={cert.pdf}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-base-700/80 hover:bg-base-600 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 border border-base-600/60 transition-all"
+                  >
+                    <FaFilePdf size={14} className="text-red-400" />
+                    Lihat PDF
+                  </a>
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-light text-base-900 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-accent/20"
+                  >
+                    <FaExternalLinkAlt size={12} />
+                    Verifikasi Official
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
