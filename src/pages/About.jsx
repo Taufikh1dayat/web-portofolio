@@ -1,6 +1,15 @@
 import useInView from "../hooks/useInView";
 import Avatar from "../components/Avatar";
-import { FaCode, FaProjectDiagram, FaGraduationCap } from "react-icons/fa";
+import {
+  FaCode,
+  FaProjectDiagram,
+  FaGraduationCap,
+  FaAward,
+  FaCertificate,
+  FaFilePdf,
+  FaExternalLinkAlt,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 const skills = [
   { name: "HTML5 / CSS3", level: 90 },
@@ -38,6 +47,7 @@ export default function About() {
   const [titleRef, titleVis] = useInView();
   const [bioRef, bioVis] = useInView();
   const [skillsRef, skillsVis] = useInView();
+  const [certRef, certVis] = useInView();
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
@@ -126,7 +136,7 @@ export default function About() {
         </div>
 
         {/* Highlights Stat Grid */}
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6 mb-16">
           {highlights.map((item) => {
             const Icon = item.icon;
             return (
@@ -151,6 +161,64 @@ export default function About() {
               </div>
             );
           })}
+        </div>
+
+        {/* Sertifikasi & Kredensial Section */}
+        <div
+          ref={certRef}
+          className={`transition-all duration-700 delay-200 ${
+            certVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          <h3 className="font-heading text-2xl font-bold text-gray-100 mb-6 flex items-center gap-3">
+            <span className="p-2 rounded-xl bg-accent/10 text-accent">
+              <FaAward size={22} />
+            </span>
+            Sertifikasi & Kredensial Resmi
+          </h3>
+
+          <div className="p-6 md:p-8 rounded-2xl border border-base-600/50 bg-base-800/40 backdrop-blur-sm hover:border-accent/40 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-amber-600/10 border border-accent/30 text-accent shrink-0">
+                <FaCertificate size={32} />
+              </div>
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center gap-1">
+                    <FaCheckCircle size={10} /> Terverifikasi Resmi
+                  </span>
+                  <span className="text-xs text-muted font-mono">Dicoding Indonesia</span>
+                </div>
+                <h4 className="font-heading text-xl font-semibold text-gray-100">
+                  Belajar Dasar Pemrograman Web
+                </h4>
+                <p className="text-muted text-sm leading-relaxed max-w-2xl">
+                  Sertifikasi kelulusan resmi dalam kurikulum pengembangan web dari Dicoding Indonesia. Membuktikan penguasaan standar dasar HTML5, CSS3, layouting responsif, dan best practices pembuatan website modern.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-base-600/40">
+              <a
+                href="/sertifikat_course.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-base-700/80 hover:bg-base-600 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 border border-base-600/60 transition-all"
+              >
+                <FaFilePdf size={14} className="text-red-400" />
+                Lihat PDF
+              </a>
+              <a
+                href="https://www.dicoding.com/certificates/L4PQ51747ZO1"
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-light text-base-900 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-accent/20"
+              >
+                <FaExternalLinkAlt size={12} />
+                Verifikasi Official
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

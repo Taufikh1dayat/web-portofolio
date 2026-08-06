@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaAward } from "react-icons/fa";
 import Avatar from "../components/Avatar";
 import useInView from "../hooks/useInView";
 
@@ -33,13 +33,25 @@ export default function Home() {
 
         {/* Text */}
         <div className="max-w-2xl text-center lg:text-left">
-          {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Available for work / freelance
+          {/* Badges Container */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              Available for work / freelance
+            </div>
+
+            <a
+              href="https://www.dicoding.com/certificates/L4PQ51747ZO1"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-medium hover:bg-amber-500/20 transition-all"
+            >
+              <FaAward size={13} className="text-accent" />
+              Dicoding Certified
+            </a>
           </div>
 
           <div
@@ -120,4 +132,3 @@ export default function Home() {
     </section>
   );
 }
-
