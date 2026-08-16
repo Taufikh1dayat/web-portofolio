@@ -60,6 +60,14 @@ const certificates = [
     pdf: "/sertifikat_course_python.pdf",
     link: "https://www.dicoding.com/certificates/RVZK0DVLEZD5",
   },
+  {
+    title: "Belajar Dasar Literasi Keuangan",
+    issuer: "Dicoding Indonesia",
+    badge: "Financial Literacy",
+    description: "Sertifikasi kelulusan resmi pemahaman literasi keuangan dari Dicoding Indonesia. Membuktikan pemahaman fondasi pengelolaan finansial dasar, perencanaan anggaran, dan manajemen risiko.",
+    pdf: "/sertifikat_course_financial_literacy.pdf",
+    link: "https://www.dicoding.com/certificates/07Z6QK9QRZQR",
+  },
 ];
 
 export default function About() {
