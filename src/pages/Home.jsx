@@ -43,15 +43,13 @@ export default function Home() {
               Available for work / freelance
             </div>
 
-            <a
-              href="https://www.dicoding.com/certificates/L4PQ51747ZO1"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-medium hover:bg-amber-500/20 transition-all"
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-medium hover:bg-amber-500/20 hover:border-amber-500/50 active:scale-[0.98] transition-all"
             >
               <FaAward size={13} className="text-accent" />
               Dicoding Certified
-            </a>
+            </Link>
           </div>
 
           <div
