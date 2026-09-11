@@ -45,6 +45,14 @@ const highlights = [
 
 const certificates = [
   {
+    title: "Belajar Dasar AI",
+    issuer: "Dicoding Indonesia",
+    badge: "Artificial Intelligence",
+    description: "Sertifikasi kelulusan resmi dalam kurikulum Artificial Intelligence dari Dicoding Indonesia. Membuktikan pemahaman komprehensif terkait dasar-dasar AI, konsep Machine Learning, dan Deep Learning.",
+    pdf: "/ai_sertificate.pdf",
+    link: "https://www.dicoding.com/certificates/4EXGJ9ME1XRL",
+  },
+  {
     title: "Belajar Dasar Pemrograman Web",
     issuer: "Dicoding Indonesia",
     badge: "Web Development",
