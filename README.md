@@ -1,4 +1,4 @@
-# ✨ M. Taufik Hidayat — Personal Portfolio
+#  M. Taufik Hidayat — Personal Portfolio
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
@@ -9,23 +9,23 @@
 
 Website portofolio personal interaktif yang dibangun menggunakan **React 19**, **Vite**, dan **Tailwind CSS**. Didesain dengan estetika modern, tema gelap (*Dark Mode*), sistem komponen *glassmorphic*, serta latar belakang partikel beranimasi yang responsif.
 
-🔗 **Live Demo**: [web-portofolio-two-rouge.vercel.app](https://web-portofolio-two-rouge.vercel.app/)
+ **Live Demo**: [web-portofolio-two-rouge.vercel.app](https://web-portofolio-two-rouge.vercel.app/)
 
 ---
 
-## 🌟 Fitur Utama (Key Features)
+##  Fitur Utama (Key Features)
 
-- **🎨 Glassmorphism & Dark Aesthetic Design**: Skema warna tailormade Amber (`#f59e0b`) & Emerald (`#10b981`) berpadu dengan efek blur transparan.
-- **🌌 Interactive Animated Particles Background**: Sistem partikel HTML5 Canvas dinamis dan pendaran aura cahaya atmosferik yang berputar halus.
-- **🖼️ Professional Portrait Card Frame**: Bingkai foto profil modern berdesain kartu potret lengkap dengan badge melayang *"Frontend Developer ⚡"*.
-- **📂 Filter Kategori Proyek**: Penyaring proyek interaktif (*Semua, Web Application, AI & Desktop, Computer Vision, Frontend*).
-- **✉️ Interactive Contact Form**: Formulir kontak lengkap dengan penanganan status pengiriman, notifikasi sukses, dan akses cepat ke email & sosial media.
-- **⬆️ Scroll-To-Top Button**: Tombol floating interaktif untuk kemudahan navigasi halaman.
-- **📱 100% Responsif**: Tampilan optimal di berbagai ukuran layar (Desktop, Tablet, dan Mobile).
+- ** Glassmorphism & Dark Aesthetic Design**: Skema warna tailormade Amber (`#f59e0b`) & Emerald (`#10b981`) berpadu dengan efek blur transparan.
+- ** Interactive Animated Particles Background**: Sistem partikel HTML5 Canvas dinamis dan pendaran aura cahaya atmosferik yang berputar halus.
+- ** Professional Portrait Card Frame**: Bingkai foto profil modern berdesain kartu potret lengkap dengan badge melayang *"Frontend Developer ⚡"*.
+- ** Filter Kategori Proyek**: Penyaring proyek interaktif (*Semua, Web Application, AI & Desktop, Computer Vision, Frontend*).
+- ** Interactive Contact Form**: Formulir kontak lengkap dengan penanganan status pengiriman, notifikasi sukses, dan akses cepat ke email & sosial media.
+- ** Scroll-To-Top Button**: Tombol floating interaktif untuk kemudahan navigasi halaman.
+- ** 100% Responsif**: Tampilan optimal di berbagai ukuran layar (Desktop, Tablet, dan Mobile).
 
 ---
 
-## 🛠️ Teknologi & Tools (Tech Stack)
+##  Teknologi & Tools (Tech Stack)
 
 | Kategori | Teknologi |
 | :--- | :--- |
@@ -38,7 +38,7 @@ Website portofolio personal interaktif yang dibangun menggunakan **React 19**, *
 
 ---
 
-## 🚀 Panduan Memulai (Quick Start)
+##  Panduan Memulai (Quick Start)
 
 Ikuti langkah-langkah di bawah ini untuk menjalankan proyek secara lokal di komputer Anda:
 
@@ -66,7 +66,7 @@ npm run build
 
 ---
 
-## 📁 Struktur Direktori (Project Structure)
+##  Struktur Direktori (Project Structure)
 
 ```text
 portfolio-react/
@@ -97,7 +97,7 @@ portfolio-react/
 
 ---
 
-## 📫 Kontak & Sosial Media
+##  Kontak & Sosial Media
 
 * **Nama**: M. Taufik Hidayat
 * **Email**: [dayattaufik078@gmail.com](mailto:dayattaufik078@gmail.com)
