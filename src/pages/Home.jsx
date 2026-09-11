@@ -1,12 +1,47 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaEnvelope, FaAward } from "react-icons/fa";
 import Avatar from "../components/Avatar";
 import useInView from "../hooks/useInView";
 
+const prefixText = "Saya membangun website modern, responsif, dan mudah digunakan — fokus di ";
+const highlightText = "React & Tailwind CSS.";
+const fullText = prefixText + highlightText;
+
 export default function Home() {
   const [titleRef, titleVis] = useInView();
   const [subRef, subVis] = useInView();
   const [ctaRef, ctaVis] = useInView();
+
+  const [displayedText, setDisplayedText] = useState("");
+  const hasTyped = useRef(false);
+
+  useEffect(() => {
+    if (!subVis || hasTyped.current) return;
+    hasTyped.current = true;
+
+    let currentIndex = 0;
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (currentIndex < fullText.length) {
+          setDisplayedText(fullText.slice(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 30);
+
+      return () => clearInterval(interval);
+    }, 300);
+
+    return () => clearTimeout(startDelay);
+  }, [subVis]);
+
+  const prefixPart = displayedText.slice(0, prefixText.length);
+  const highlightPart =
+    displayedText.length > prefixText.length
+      ? displayedText.slice(prefixText.length)
+      : "";
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-28">
@@ -73,9 +108,14 @@ export default function Home() {
               subVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <p className="text-muted text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Saya membangun website modern, responsif, dan mudah digunakan —
-              fokus di React & Tailwind CSS.
+            <p className="text-muted text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 min-h-[3.5rem]">
+              <span>{prefixPart}</span>
+              {highlightPart && (
+                <span className="text-gray-100 font-semibold text-accent/90">
+                  {highlightPart}
+                </span>
+              )}
+              <span className="inline-block w-[2px] h-[1.15em] ml-1 bg-accent align-middle animate-pulse" />
             </p>
           </div>
 

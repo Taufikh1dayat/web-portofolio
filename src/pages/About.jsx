@@ -85,22 +85,8 @@ export default function About() {
   const [certRef, certVis] = useInView();
 
   return (
-    <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/3 -left-24 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/3 -right-24 w-[350px] h-[350px] bg-accent/10 rounded-full blur-[120px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section className="relative min-h-screen pt-28 pb-28 sm:pb-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10">
         {/* Title */}
         <div
           ref={titleRef}
@@ -141,7 +127,7 @@ export default function About() {
           {/* Skills Bar */}
           <div
             ref={skillsRef}
-            className={`md:col-span-2 bg-base-800/40 border border-base-600/50 p-6 rounded-2xl transition-all duration-700 delay-400 ${
+            className={`md:col-span-2 bg-base-800/85 border border-base-600/50 p-6 rounded-2xl shadow-lg transition-all duration-700 delay-400 ${
               skillsVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
@@ -177,7 +163,7 @@ export default function About() {
             return (
               <div
                 key={item.title}
-                className="p-6 rounded-2xl border border-base-600/40 bg-base-800/30 flex items-center gap-5 hover:border-accent/30 transition-all"
+                className="p-6 rounded-2xl border border-base-600/40 bg-base-800/80 shadow-md flex items-center gap-5 hover:border-accent/30 transition-colors duration-200"
               >
                 <div className="p-4 rounded-xl bg-accent/10 text-accent shrink-0">
                   <Icon size={24} />
@@ -216,37 +202,45 @@ export default function About() {
             {certificates.map((cert) => (
               <div
                 key={cert.title}
-                className="p-6 md:p-8 rounded-2xl border border-base-600/50 bg-base-800/40 backdrop-blur-sm hover:border-accent/40 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+                className="p-5 sm:p-6 md:p-8 rounded-2xl border border-base-600/50 bg-base-800/90 shadow-lg hover:border-accent/40 transition-colors duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-accent/20 to-amber-600/10 border border-accent/30 text-accent shrink-0">
-                    <FaCertificate size={32} />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center gap-1">
+                <div className="flex-1 space-y-3">
+                  {/* Top row: Icon + Meta badges */}
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 sm:p-3 rounded-xl bg-gradient-to-br from-accent/20 to-amber-600/10 border border-accent/30 text-accent shrink-0">
+                      <FaCertificate className="text-xl sm:text-2xl" />
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 min-w-0">
+                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 inline-flex items-center gap-1 shrink-0">
                         <FaCheckCircle size={10} /> Terverifikasi Resmi
                       </span>
-                      <span className="text-xs text-muted font-mono">{cert.issuer}</span>
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/10 text-accent border border-accent/20">
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/10 text-accent border border-accent/20 shrink-0">
                         {cert.badge}
                       </span>
+                      <span className="text-xs text-muted font-mono hidden sm:inline">
+                        • {cert.issuer}
+                      </span>
                     </div>
-                    <h4 className="font-heading text-xl font-semibold text-gray-100">
+                  </div>
+
+                  {/* Title & Description with full horizontal space on mobile */}
+                  <div>
+                    <h4 className="font-heading text-lg sm:text-xl font-bold text-gray-100 mb-2 leading-snug">
                       {cert.title}
                     </h4>
-                    <p className="text-muted text-sm leading-relaxed max-w-2xl">
+                    <p className="text-muted text-xs sm:text-sm leading-relaxed max-w-3xl">
                       {cert.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-base-600/40">
+                {/* Action Buttons */}
+                <div className="flex items-center gap-3 w-full lg:w-auto shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-base-600/40">
                   <a
                     href={cert.pdf}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-base-700/80 hover:bg-base-600 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 border border-base-600/60 transition-all"
+                    className="flex-1 lg:flex-none px-4 sm:px-5 py-2.5 rounded-xl bg-base-700/80 hover:bg-base-600 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 border border-base-600/60 transition-colors duration-200 active:scale-[0.98]"
                   >
                     <FaFilePdf size={14} className="text-red-400" />
                     Lihat PDF
@@ -255,7 +249,7 @@ export default function About() {
                     href={cert.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-light text-base-900 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-accent/20"
+                    className="flex-1 lg:flex-none px-4 sm:px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-light text-base-900 text-xs font-bold flex items-center justify-center gap-2 transition-colors duration-200 shadow-md shadow-accent/20 active:scale-[0.98]"
                   >
                     <FaExternalLinkAlt size={12} />
                     Verifikasi Official
