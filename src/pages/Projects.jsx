@@ -4,6 +4,14 @@ import useInView from "../hooks/useInView";
 
 const projects = [
   {
+    title: "Gym Management System",
+    description: "Sistem manajemen klub kebugaran full-stack dengan 4 Role Multi-Dashboard (Admin, Staff, Trainer, Member), terminal check-in barcode, kartu digital, dan booking kelas.",
+    category: "Web Application",
+    tech: ["React", "TypeScript", "Tailwind", "Node.js", "Express", "Prisma", "MySQL"],
+    link: "https://github.com/Taufikh1dayat/gymManagement",
+    image: null,
+  },
+  {
     title: "Web Analytics Platform",
     description: "Platform analitik web modern interaktif untuk memantau pengunjung, visualisasi metrik real-time, dan insight performa situs.",
     category: "Web Application",
@@ -73,6 +81,10 @@ const techColors = {
   "React": "from-sky-500 to-blue-600",
   "Tailwind": "from-cyan-400 to-teal-500",
   "Vite": "from-purple-500 to-pink-500",
+  "Node.js": "from-emerald-500 to-green-700",
+  "Express": "from-gray-500 to-slate-700",
+  "Prisma": "from-teal-400 to-cyan-600",
+  "MySQL": "from-blue-600 to-cyan-700",
   "Python": "from-blue-500 to-indigo-600",
   "Tkinter": "from-gray-400 to-gray-600",
   "Groq API": "from-emerald-400 to-green-600",
