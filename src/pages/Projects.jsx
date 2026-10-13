@@ -12,6 +12,14 @@ const projects = [
     image: null,
   },
   {
+    title: "EduSphere - School Platform",
+    description: "Platform manajemen sekolah & portal akademik full-stack dengan website publik, CMS, sistem penerimaan siswa (PPDB), dan portal multi-role (Admin, Guru, Siswa, Orang Tua).",
+    category: "Web Application",
+    tech: ["React", "TypeScript", "Tailwind", "Node.js", "Express", "Prisma", "PostgreSQL"],
+    link: "https://github.com/Taufikh1dayat/web-sekolah",
+    image: null,
+  },
+  {
     title: "Web Analytics Platform",
     description: "Platform analitik web modern interaktif untuk memantau pengunjung, visualisasi metrik real-time, dan insight performa situs.",
     category: "Web Application",
@@ -60,14 +68,6 @@ const projects = [
     image: null,
   },
   {
-    title: "To-do List App",
-    description: "Aplikasi manajemen tugas/to-do list sederhana dengan persistent storage & CRUD lengkap.",
-    category: "Web Application",
-    tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/Taufikh1dayat/To-do-list",
-    image: null,
-  },
-  {
     title: "Cuaca App",
     description: "Aplikasi pemantau prakiraan cuaca real-time yang terhubung ke OpenWeather API.",
     category: "Web Application",
@@ -85,6 +85,7 @@ const techColors = {
   "Express": "from-gray-500 to-slate-700",
   "Prisma": "from-teal-400 to-cyan-600",
   "MySQL": "from-blue-600 to-cyan-700",
+  "PostgreSQL": "from-blue-600 to-indigo-700",
   "Python": "from-blue-500 to-indigo-600",
   "Tkinter": "from-gray-400 to-gray-600",
   "Groq API": "from-emerald-400 to-green-600",
