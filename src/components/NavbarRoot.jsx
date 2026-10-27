@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const menu = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Projects", path: "/projects" },
-  { name: "Contact", path: "/contact" },
+  { name: "// HOME", path: "/" },
+  { name: "// ABOUT", path: "/about" },
+  { name: "// PROJECTS", path: "/projects" },
+  { name: "// CONTACT", path: "/contact" },
 ];
 
 export default function NavbarRoot() {
@@ -22,32 +22,35 @@ export default function NavbarRoot() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
-        scrolled
-          ? "bg-base-900/80 backdrop-blur-xl border-b border-base-600/50"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-[100] transition-colors duration-200 border-b-2 border-white ${
+        scrolled ? "bg-base-900 shadow-[0_4px_0_0_#FFE600]" : "bg-base-900/95"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
         <Link
           to="/"
-          className="font-heading font-bold text-xl tracking-tight"
+          className="inline-flex items-center gap-2 group"
         >
-          <span className="text-gradient">Taufik.</span>
+          <span className="px-3 py-1 bg-neo-yellow text-black font-heading font-black text-sm tracking-wider uppercase border-2 border-white shadow-brutal-sm group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-brutal transition-all">
+            TAUFIK.DEV
+          </span>
+          <span className="hidden sm:inline-block font-mono text-xs text-neo-lime font-bold">
+            [SYS::ONLINE]
+          </span>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-2">
           {menu.map((item) => {
             const active = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-3.5 py-1.5 font-mono text-xs font-bold uppercase transition-all ${
                   active
-                    ? "text-accent bg-accent/10"
-                    : "text-gray-400 hover:text-gray-100 hover:bg-white/5"
+                    ? "bg-white text-black border-2 border-white shadow-brutal-yellow translate-x-[-2px] translate-y-[-2px]"
+                    : "border-2 border-transparent text-gray-300 hover:border-white hover:text-white hover:bg-base-800"
                 }`}
               >
                 {item.name}
@@ -59,36 +62,19 @@ export default function NavbarRoot() {
         {/* Hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden relative w-8 h-8 flex items-center justify-center"
+          className="md:hidden w-10 h-10 border-2 border-white bg-base-800 text-white shadow-brutal-sm flex items-center justify-center active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
-          <div className="flex flex-col gap-1.5">
-            <span
-              className={`block w-5 h-[2px] bg-gray-300 rounded transition-all duration-200 ${
-                open ? "rotate-45 translate-y-[5px]" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-[2px] bg-gray-300 rounded transition-all duration-200 ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-[2px] bg-gray-300 rounded transition-all duration-200 ${
-                open ? "-rotate-45 -translate-y-[5px]" : ""
-              }`}
-            />
-          </div>
+          <span className="font-mono font-bold text-sm">
+            {open ? "[X]" : "[=]"}
+          </span>
         </button>
       </div>
 
-      {/* Mobile */}
-      <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          open ? "max-h-80" : "max-h-0"
-        }`}
-      >
-        <div className="bg-base-900/95 backdrop-blur-xl border-b border-base-600/50 px-6 py-4 space-y-2">
+      {/* Mobile Drawer */}
+      {open && (
+        <div className="md:hidden border-t-2 border-white bg-base-900 p-5 space-y-2">
           {menu.map((item) => {
             const active = location.pathname === item.path;
             return (
@@ -96,10 +82,10 @@ export default function NavbarRoot() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`block px-4 py-2.5 font-mono text-xs font-bold uppercase border-2 transition-all ${
                   active
-                    ? "text-accent bg-accent/10"
-                    : "text-gray-400 hover:text-gray-100 hover:bg-white/5"
+                    ? "bg-neo-yellow text-black border-white shadow-brutal-sm"
+                    : "border-white/30 text-gray-300 hover:border-white hover:text-white"
                 }`}
               >
                 {item.name}
@@ -107,7 +93,7 @@ export default function NavbarRoot() {
             );
           })}
         </div>
-      </div>
+      )}
     </nav>
   );
 }

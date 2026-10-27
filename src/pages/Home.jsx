@@ -21,20 +21,22 @@ export default function Home() {
     hasTyped.current = true;
 
     let currentIndex = 0;
+    let intervalId;
     const startDelay = setTimeout(() => {
-      const interval = setInterval(() => {
+      intervalId = setInterval(() => {
         if (currentIndex < fullText.length) {
           setDisplayedText(fullText.slice(0, currentIndex + 1));
           currentIndex++;
         } else {
-          clearInterval(interval);
+          clearInterval(intervalId);
         }
       }, 30);
-
-      return () => clearInterval(interval);
     }, 300);
 
-    return () => clearTimeout(startDelay);
+    return () => {
+      clearTimeout(startDelay);
+      clearInterval(intervalId);
+    };
   }, [subVis]);
 
   const prefixPart = displayedText.slice(0, prefixText.length);
@@ -44,105 +46,91 @@ export default function Home() {
       : "";
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-28">
-      {/* Background atmosphere */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[120px]" />
-        {/* Grid overlay halus */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10 min-h-[calc(100vh-7rem)] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-        {/* Avatar Portrait Card */}
-        <div className="shrink-0 animate-fade-in">
+    <section className="relative min-h-screen overflow-hidden pt-28 pb-16">
+      <div className="relative max-w-7xl mx-auto px-5 md:px-10 min-h-[calc(100vh-7rem)] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+        {/* Avatar Card */}
+        <div className="shrink-0">
           <Avatar width={280} height={340} />
         </div>
 
-        {/* Text */}
+        {/* Text Area */}
         <div className="max-w-2xl text-center lg:text-left">
-          {/* Badges Container */}
+          {/* Brutalist Stickers / Badges */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Available for work / freelance
+            <div className="inline-flex items-center gap-2 px-3 py-1 border-2 border-white bg-neo-lime text-black text-xs font-mono font-black uppercase shadow-brutal-sm">
+              <span className="w-2 h-2 bg-black inline-block animate-ping" />
+              AVAILABLE FOR HIRE
             </div>
 
             <Link
               to="/about"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-medium hover:bg-amber-500/20 hover:border-amber-500/50 active:scale-[0.98] transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1 border-2 border-white bg-neo-yellow text-black text-xs font-mono font-black uppercase shadow-brutal-sm hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all"
             >
-              <FaAward size={13} className="text-accent" />
-              Dicoding Certified
+              <FaAward size={13} />
+              DICODING CERTIFIED
             </Link>
           </div>
 
           <div
             ref={titleRef}
-            className={`transition-all duration-700 delay-100 ${
-              titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`transition-all duration-500 ${
+              titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="text-accent font-medium text-sm tracking-widest uppercase mb-3 font-heading">
-              Frontend Developer
-            </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-              Hi, saya{" "}
-              <span className="text-gradient">M. Taufik Hidayat</span>
+            <div className="inline-block px-2.5 py-0.5 border border-white/60 bg-black text-neo-yellow font-mono text-xs font-bold uppercase tracking-wider mb-3">
+              // ROLE: FRONTEND DEVELOPER
+            </div>
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white mb-4">
+              HI, SAYA <br />
+              <span className="inline-block bg-white text-black px-2 py-0.5 mt-2 border-2 border-black shadow-[4px_4px_0px_#FFE600] max-w-full truncate">
+                M. TAUFIK HIDAYAT
+              </span>
             </h1>
           </div>
 
           <div
             ref={subRef}
-            className={`transition-all duration-700 delay-300 mt-6 ${
-              subVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`transition-all duration-500 delay-100 mt-4 ${
+              subVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="text-muted text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 min-h-[3.5rem]">
+            <div className="p-4 border-2 border-white/80 bg-base-800 shadow-brutal-sm font-mono text-sm leading-relaxed text-gray-200">
+              <span className="text-neo-yellow font-bold mr-2">&gt;</span>
               <span>{prefixPart}</span>
               {highlightPart && (
-                <span className="text-gray-100 font-semibold text-accent/90">
+                <span className="bg-neo-yellow text-black px-1 font-bold">
                   {highlightPart}
                 </span>
               )}
-              <span className="inline-block w-[2px] h-[1.15em] ml-1 bg-accent align-middle animate-pulse" />
-            </p>
+              <span className="inline-block w-2 h-4 ml-1 bg-neo-yellow align-middle animate-pulse" />
+            </div>
           </div>
 
           <div
             ref={ctaRef}
-            className={`transition-all duration-700 delay-500 mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start ${
-              ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`transition-all duration-500 delay-200 mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start ${
+              ctaVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             <Link
               to="/projects"
-              className="w-full sm:w-auto text-center px-6 py-3 bg-accent text-base-900 font-semibold rounded-xl hover:bg-accent-light transition-all duration-200 active:scale-[0.97]"
+              className="w-full sm:w-auto text-center px-6 py-3 border-2 border-white bg-neo-yellow text-black font-heading font-black text-xs uppercase tracking-wider shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
             >
-              Lihat Project
+              [ LIHAT PROJECT ]
             </Link>
             <Link
               to="/contact"
-              className="w-full sm:w-auto text-center px-6 py-3 border border-accent/40 text-accent font-medium rounded-xl hover:bg-accent/10 transition-all duration-200 active:scale-[0.97]"
+              className="w-full sm:w-auto text-center px-6 py-3 border-2 border-white bg-black text-white font-heading font-black text-xs uppercase tracking-wider shadow-brutal hover:bg-white hover:text-black hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
             >
-              Hubungi Saya
+              [ HUBUNGI SAYA ]
             </Link>
-            <div className="flex items-center gap-3 ml-0 sm:ml-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-base-600/40 w-full sm:w-auto justify-center">
+
+            <div className="flex items-center gap-2 pt-2 sm:pt-0">
               <a
                 href="https://github.com/Taufikh1dayat"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-xl bg-base-800/80 border border-base-600/50 text-muted hover:text-accent hover:border-accent/40 transition-all"
+                className="p-3 border-2 border-white bg-base-800 text-white hover:bg-neo-yellow hover:text-black shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
                 aria-label="GitHub"
               >
                 <FaGithub size={18} />
@@ -151,14 +139,14 @@ export default function Home() {
                 href="https://linkedin.com/in/m-taufik-hidayat-051541240"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-xl bg-base-800/80 border border-base-600/50 text-muted hover:text-accent hover:border-accent/40 transition-all"
+                className="p-3 border-2 border-white bg-base-800 text-white hover:bg-neo-yellow hover:text-black shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin size={18} />
               </a>
               <a
                 href="mailto:dayattaufik078@gmail.com"
-                className="p-3 rounded-xl bg-base-800/80 border border-base-600/50 text-muted hover:text-accent hover:border-accent/40 transition-all"
+                className="p-3 border-2 border-white bg-base-800 text-white hover:bg-neo-yellow hover:text-black shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
                 aria-label="Email"
               >
                 <FaEnvelope size={18} />

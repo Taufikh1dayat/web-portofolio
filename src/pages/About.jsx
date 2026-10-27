@@ -85,41 +85,41 @@ export default function About() {
   const [certRef, certVis] = useInView();
 
   return (
-    <section className="relative min-h-screen pt-28 pb-28 sm:pb-24 overflow-hidden">
+    <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10">
         {/* Title */}
         <div
           ref={titleRef}
-          className={`transition-all duration-700 mb-12 ${
-            titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`transition-all duration-500 mb-10 ${
+            titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <p className="text-accent font-medium text-sm tracking-widest uppercase mb-3 font-heading">
-            About
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold">
-            Tentang Saya
+          <div className="inline-block px-2.5 py-0.5 border border-white/60 bg-black text-neo-yellow font-mono text-xs font-bold uppercase tracking-wider mb-2">
+            // PROFILE &amp; CREDENTIALS
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white">
+            TENTANG SAYA
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-5 gap-8 items-start mb-16">
           {/* Bio + Avatar */}
           <div
             ref={bioRef}
-            className={`md:col-span-3 flex flex-col sm:flex-row items-center sm:items-start gap-8 transition-all duration-700 delay-200 ${
-              bioVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`md:col-span-3 border-2 border-white bg-base-800 p-6 sm:p-8 shadow-brutal flex flex-col sm:flex-row items-center sm:items-start gap-8 transition-all duration-500 delay-100 ${
+              bioVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <Avatar width={240} height={290} className="shrink-0 mb-4 sm:mb-0" />
-            <div className="space-y-4 text-center sm:text-left">
-              <p className="text-muted text-base leading-relaxed">
-                Saya adalah seorang <strong className="text-gray-100 font-semibold">Frontend Developer</strong> yang berdedikasi membangun antarmuka website modern, responsif, dan performan. Berbekal keahlian di ekosistem <strong className="text-accent">React JS</strong>, <strong className="text-accent">Tailwind CSS</strong>, dan integrasi <strong className="text-accent">Artificial Intelligence</strong>, saya merancang pengalaman pengguna yang interaktif.
+            <Avatar width={220} height={260} className="shrink-0 mb-2 sm:mb-0" />
+            <div className="space-y-4 text-center sm:text-left font-space">
+              <div className="inline-block px-2 py-0.5 border border-white bg-black font-mono text-xs text-neo-lime font-bold">
+                STATUS: READY_TO_WORK
+              </div>
+              <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+                Saya adalah seorang <strong className="text-white font-black bg-white/10 px-1">Frontend Developer</strong> yang berfokus membangun antarmuka website modern, responsif, dan berperforma tinggi dengan ekosistem <strong className="text-neo-yellow font-black">React JS</strong>, <strong className="text-neo-yellow font-black">Tailwind CSS</strong>, dan integrasi <strong className="text-neo-cyan font-black">AI</strong>.
               </p>
-              <p className="text-muted text-base leading-relaxed">
-                Selain pengembangan web, saya juga berpengalaman mengeksplorasi bahasa <strong className="text-gray-100 font-semibold">Python</strong> pemrosesan data real-time scraping, dan analisa otomatis cyberbullying dengan melatih algoritma agar bisa mengetahui mana yang salah dan benar, lalu menambahkan LLM untuk analisa lebih tertata dan mendalam.
-              </p>
-              <p className="text-muted text-base leading-relaxed">
-                Saya selalu bersemangat mempelajari teknologi baru, mengikuti best practices pengembangan perangkat lunak, dan siap berkontribusi dalam proyek-proyek yang menantang.
+              <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+                Selain pengembangan web, saya juga berpengalaman mengeksplorasi bahasa <strong className="text-white font-black">Python</strong>, scraping data real-time, dan fine-tuning LLM untuk analisa mendalam.
               </p>
             </div>
           </div>
@@ -127,26 +127,26 @@ export default function About() {
           {/* Skills Bar */}
           <div
             ref={skillsRef}
-            className={`md:col-span-2 bg-base-800/85 border border-base-600/50 p-6 rounded-2xl shadow-lg transition-all duration-700 delay-400 ${
-              skillsVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`md:col-span-2 border-2 border-white bg-base-800 p-6 shadow-brutal transition-all duration-500 delay-200 ${
+              skillsVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <h3 className="font-heading font-semibold text-lg mb-6 text-gray-200">
-              Keahlian Utama
-            </h3>
-            <div className="space-y-4">
-              {skills.map((skill, i) => (
+            <div className="bg-white text-black px-3 py-1 -mt-6 -mx-6 mb-5 border-b-2 border-white font-mono text-xs font-black uppercase tracking-wider flex items-center justify-between">
+              <span>// SKILL_METRICS.JSON</span>
+              <span>[OK]</span>
+            </div>
+            <div className="space-y-3.5">
+              {skills.map((skill) => (
                 <div key={skill.name}>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="text-gray-300 font-medium">{skill.name}</span>
-                    <span className="text-muted text-xs font-mono">{skill.level}%</span>
+                  <div className="flex justify-between text-xs font-mono font-bold mb-1">
+                    <span className="text-white">{skill.name}</span>
+                    <span className="text-neo-yellow">{skill.level}%</span>
                   </div>
-                  <div className="h-2 rounded-full bg-base-700 overflow-hidden">
+                  <div className="h-3 border-2 border-white bg-base-900 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-accent via-amber-400 to-amber-500 transition-all duration-1000 ease-out"
+                      className="h-full bg-neo-yellow transition-all duration-700 ease-out"
                       style={{
                         width: skillsVis ? `${skill.level}%` : "0%",
-                        transitionDelay: `${i * 100}ms`,
                       }}
                     />
                   </div>
@@ -157,25 +157,25 @@ export default function About() {
         </div>
 
         {/* Highlights Stat Grid */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-3 gap-5 mb-16">
           {highlights.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="p-6 rounded-2xl border border-base-600/40 bg-base-800/80 shadow-md flex items-center gap-5 hover:border-accent/30 transition-colors duration-200"
+                className="p-5 border-2 border-white bg-base-800 shadow-brutal-sm flex items-center gap-4 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal transition-all"
               >
-                <div className="p-4 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <Icon size={24} />
+                <div className="p-3 border-2 border-white bg-neo-yellow text-black shrink-0">
+                  <Icon size={22} />
                 </div>
                 <div>
-                  <span className="text-2xl font-bold font-heading text-gray-100 block">
+                  <span className="text-2xl font-black font-heading text-white block">
                     {item.number}
                   </span>
-                  <span className="text-sm font-semibold text-gray-300 block">
+                  <span className="text-xs font-mono font-bold text-gray-200 block uppercase">
                     {item.title}
                   </span>
-                  <span className="text-xs text-muted block">
+                  <span className="text-[11px] font-mono text-muted block">
                     {item.desc}
                   </span>
                 </div>
@@ -187,72 +187,68 @@ export default function About() {
         {/* Sertifikasi & Kredensial Section */}
         <div
           ref={certRef}
-          className={`transition-all duration-700 delay-200 ${
-            certVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`transition-all duration-500 delay-100 ${
+            certVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <h3 className="font-heading text-2xl font-bold text-gray-100 mb-6 flex items-center gap-3">
-            <span className="p-2 rounded-xl bg-accent/10 text-accent">
-              <FaAward size={22} />
+          <div className="flex items-center gap-3 mb-6">
+            <span className="p-2 border-2 border-white bg-neo-lime text-black font-black">
+              <FaAward size={20} />
             </span>
-            Sertifikasi & Kredensial Resmi
-          </h3>
+            <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white">
+              SERTIFIKASI &amp; KREDENSIAL RESMI
+            </h3>
+          </div>
 
           <div className="space-y-5">
             {certificates.map((cert) => (
               <div
                 key={cert.title}
-                className="p-5 sm:p-6 md:p-8 rounded-2xl border border-base-600/50 bg-base-800/90 shadow-lg hover:border-accent/40 transition-colors duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+                className="border-2 border-white bg-base-800 shadow-brutal-yellow transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6"
               >
-                <div className="flex-1 space-y-3">
-                  {/* Top row: Icon + Meta badges */}
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 sm:p-3 rounded-xl bg-gradient-to-br from-accent/20 to-amber-600/10 border border-accent/30 text-accent shrink-0">
-                      <FaCertificate className="text-xl sm:text-2xl" />
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 min-w-0">
-                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 inline-flex items-center gap-1 shrink-0">
-                        <FaCheckCircle size={10} /> Terverifikasi Resmi
-                      </span>
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/10 text-accent border border-accent/20 shrink-0">
-                        {cert.badge}
-                      </span>
-                      <span className="text-xs text-muted font-mono hidden sm:inline">
-                        • {cert.issuer}
-                      </span>
-                    </div>
+                {/* Certificate Window Header on Mobile */}
+                <div className="flex-1 p-5 sm:p-6 space-y-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-[10px] font-mono font-black px-2.5 py-0.5 border border-black bg-neo-lime text-black inline-flex items-center gap-1">
+                      <FaCheckCircle size={10} /> RESMI TERVERIFIKASI
+                    </span>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 border border-white bg-black text-neo-yellow">
+                      {cert.badge}
+                    </span>
+                    <span className="text-xs font-mono text-muted">
+                      // {cert.issuer}
+                    </span>
                   </div>
 
-                  {/* Title & Description with full horizontal space on mobile */}
                   <div>
-                    <h4 className="font-heading text-lg sm:text-xl font-bold text-gray-100 mb-2 leading-snug">
+                    <h4 className="font-heading text-lg sm:text-xl font-black text-white leading-snug">
                       {cert.title}
                     </h4>
-                    <p className="text-muted text-xs sm:text-sm leading-relaxed max-w-3xl">
+                    <p className="text-muted text-xs sm:text-sm leading-relaxed max-w-3xl font-body mt-1">
                       {cert.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-3 w-full lg:w-auto shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-base-600/40">
+                <div className="p-5 sm:p-6 lg:border-l-2 lg:border-white flex sm:flex-row lg:flex-col gap-3 shrink-0 bg-base-900/60 border-t-2 sm:border-t-0 border-white/60">
                   <a
                     href={cert.pdf}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 lg:flex-none px-4 sm:px-5 py-2.5 rounded-xl bg-base-700/80 hover:bg-base-600 text-gray-200 text-xs font-semibold flex items-center justify-center gap-2 border border-base-600/60 transition-colors duration-200 active:scale-[0.98]"
+                    className="flex-1 px-4 py-2 border-2 border-white bg-black text-white text-xs font-mono font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-black shadow-brutal-sm active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
                   >
-                    <FaFilePdf size={14} className="text-red-400" />
-                    Lihat PDF
+                    <FaFilePdf size={13} className="text-red-400" />
+                    [ PDF ]
                   </a>
                   <a
                     href={cert.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 lg:flex-none px-4 sm:px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-light text-base-900 text-xs font-bold flex items-center justify-center gap-2 transition-colors duration-200 shadow-md shadow-accent/20 active:scale-[0.98]"
+                    className="flex-1 px-4 py-2 border-2 border-white bg-neo-yellow text-black text-xs font-mono font-black flex items-center justify-center gap-2 shadow-brutal-sm hover:bg-white active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
                   >
-                    <FaExternalLinkAlt size={12} />
-                    Verifikasi Official
+                    <FaExternalLinkAlt size={11} />
+                    [ VERIFIKASI ]
                   </a>
                 </div>
               </div>

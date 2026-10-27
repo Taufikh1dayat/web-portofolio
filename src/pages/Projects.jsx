@@ -118,69 +118,54 @@ export default function Projects() {
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/3 -right-24 w-[450px] h-[450px] bg-purple-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/3 -left-24 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-[120px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
         {/* Title */}
         <div
           ref={titleRef}
-          className={`transition-all duration-700 mb-8 ${
-            titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`transition-all duration-500 mb-8 ${
+            titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <p className="text-accent font-medium text-sm tracking-widest uppercase mb-3 font-heading">
-            Work
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold">
-            Projects & Karya
+          <div className="inline-block px-2.5 py-0.5 border border-white/60 bg-black text-neo-yellow font-mono text-xs font-bold uppercase tracking-wider mb-2">
+            // ARCHIVE: SELECTED WORKS
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
+            PROJECTS &amp; KARYA
           </h2>
-          <p className="text-muted mt-2 text-sm max-w-xl">
-            Kumpulan proyek pengembangan web, aplikasi desktop berbasis AI, dan komputasi visi yang telah saya bangun.
+          <p className="text-muted mt-2 font-mono text-xs sm:text-sm max-w-xl">
+            [SYS_QUERY::RETURN_ALL] Kumpulan aplikasi web full-stack, AI desktop, dan computer vision.
           </p>
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2.5 mb-10 items-center">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200 ${
+              className={`px-3.5 py-1.5 border-2 font-mono text-xs font-bold uppercase transition-all ${
                 activeCategory === cat
-                  ? "bg-accent text-base-900 font-semibold shadow-md shadow-accent/20"
-                  : "bg-base-800/80 text-muted hover:text-gray-200 border border-base-600/50 hover:bg-base-700/60"
+                  ? "border-white bg-neo-yellow text-black shadow-brutal-sm translate-x-[-1px] translate-y-[-1px]"
+                  : "border-white/50 bg-base-800 text-gray-300 hover:border-white hover:text-white active:translate-x-[1px] active:translate-y-[1px]"
               }`}
             >
-              {cat}
+              {cat === "Semua" ? "* SEMUA" : cat}
             </button>
           ))}
+          <span className="font-mono text-xs text-neo-lime font-bold ml-auto hidden sm:inline">
+            COUNT: {filteredProjects.length} ITEMS
+          </span>
         </div>
 
         {/* Grid */}
         <div
           ref={gridRef}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 delay-100 ${
-            gridVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 delay-100 ${
+            gridVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          {filteredProjects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              {...project}
-              techColors={techColors}
-            />
+          {filteredProjects.map((p) => (
+            <ProjectCard key={p.title} {...p} techColors={techColors} />
           ))}
         </div>
       </div>

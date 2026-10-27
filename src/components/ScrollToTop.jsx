@@ -28,8 +28,8 @@ export default function ScrollToTop() {
     <button
       onClick={scrollToTop}
       aria-label="Scroll to top"
-      className={`fixed bottom-6 right-6 z-[90] p-3.5 rounded-full bg-accent text-base-900 shadow-lg shadow-accent/20 hover:bg-accent-light hover:scale-110 active:scale-95 transition-all duration-300 ${
-        visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
+      className={`fixed bottom-6 right-6 z-[90] p-3 border-2 border-white bg-neo-yellow text-black shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all ${
+        visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
       <FaArrowUp size={16} className="font-bold" />

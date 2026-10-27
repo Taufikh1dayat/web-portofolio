@@ -12,7 +12,8 @@ export default function useInView(options = {}) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          if (!options.once === false) obs.unobserve(el);
+          // ponytail: default to once-only observation; pass once: false to toggle on scroll out
+          if (options.once !== false) obs.unobserve(el);
         } else if (options.once === false) {
           setVisible(false);
         }

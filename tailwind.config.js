@@ -8,21 +8,43 @@ export default {
     extend: {
       colors: {
         base: {
-          900: '#0c0c10',
-          800: '#15151d',
-          700: '#1e1e2a',
-          600: '#2a2a38',
+          900: '#0a0a0c',
+          800: '#141419',
+          700: '#1e1e24',
+          600: '#2c2c36',
+        },
+        neo: {
+          bg: '#0a0a0c',
+          card: '#141419',
+          border: '#ffffff',
+          yellow: '#FFE600',
+          lime: '#a3e635',
+          cyan: '#00E5FF',
+          pink: '#FF007F',
+          orange: '#FF5C00',
         },
         accent: {
-          DEFAULT: '#f59e0b',
-          light: '#fbbf24',
-          dark: '#d97706',
+          DEFAULT: '#FFE600',
+          light: '#FFF066',
+          dark: '#E5CE00',
         },
-        muted: '#868e9e',
+        muted: '#9ca3af',
+      },
+      boxShadow: {
+        'brutal-sm': '2px 2px 0px 0px #ffffff',
+        'brutal': '4px 4px 0px 0px #ffffff',
+        'brutal-lg': '6px 6px 0px 0px #ffffff',
+        'brutal-yellow': '4px 4px 0px 0px #FFE600',
+        'brutal-yellow-lg': '6px 6px 0px 0px #FFE600',
+        'brutal-cyan': '4px 4px 0px 0px #00E5FF',
+        'brutal-lime': '4px 4px 0px 0px #a3e635',
+        'brutal-pink': '4px 4px 0px 0px #FF007F',
       },
       fontFamily: {
-        heading: ['"Outfit"', 'sans-serif'],
-        body: ['"Inter"', 'sans-serif'],
+        heading: ['"Outfit"', '"Space Grotesk"', 'sans-serif'],
+        body: ['"Space Grotesk"', '"Inter"', 'sans-serif'],
+        space: ['"Space Grotesk"', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
@@ -31,8 +53,13 @@ export default {
         'gradient': 'gradientShift 3s ease infinite',
         'spin-slow': 'spin 30s linear infinite',
         'pulse-slow': 'pulse 8s ease-in-out infinite',
+        'marquee': 'marquee 18s linear infinite',
       },
       keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },

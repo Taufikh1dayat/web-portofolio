@@ -45,60 +45,54 @@ export default function Contact() {
     if (!formData.name || !formData.email || !formData.message) return;
 
     setStatus("sending");
+    // ponytail: auto-dispatch mailto so messages reach mailbox; upgrade to backend API later
+    const mailtoUri = `mailto:dayattaufik078@gmail.com?subject=${encodeURIComponent(
+      formData.subject || `Portfolio Contact dari ${formData.name}`
+    )}&body=${encodeURIComponent(
+      `Nama: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    )}`;
+
     setTimeout(() => {
       setStatus("sent");
+      window.location.href = mailtoUri;
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setStatus("idle"), 5000);
-    }, 1200);
+      setTimeout(() => setStatus("idle"), 6000);
+    }, 600);
   };
 
   return (
     <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-32 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-32 w-[350px] h-[350px] bg-amber-500/10 rounded-full blur-[120px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
         {/* Title */}
         <div
           ref={titleRef}
-          className={`transition-all duration-700 mb-12 ${
-            titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`transition-all duration-500 mb-10 ${
+            titleVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <p className="text-accent font-medium text-sm tracking-widest uppercase mb-3 font-heading">
-            Contact
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold">
-            Hubungi Saya
+          <div className="inline-block px-2.5 py-0.5 border border-white/60 bg-black text-neo-yellow font-mono text-xs font-bold uppercase tracking-wider mb-2">
+            // COMM_CHANNEL::OPEN
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white">
+            HUBUNGI SAYA
           </h2>
-          <p className="text-muted mt-4 max-w-xl">
-            Tertarik bekerja sama atau ingin berdiskusi mengenai proyek web? Silakan hubungi saya melalui formulir di bawah atau via media sosial.
+          <p className="text-muted mt-2 font-mono text-xs sm:text-sm max-w-xl">
+            Tertarik bekerja sama atau ingin berdiskusi mengenai proyek web? Silakan kirim pesan langsung.
           </p>
         </div>
 
         {/* Content Grid */}
         <div
           ref={contentRef}
-          className={`grid lg:grid-cols-12 gap-8 items-start transition-all duration-700 delay-200 ${
-            contentVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`grid lg:grid-cols-12 gap-8 items-start transition-all duration-500 delay-100 ${
+            contentVis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           {/* Left: Contact Info Cards */}
           <div className="lg:col-span-5 space-y-4">
-            <h3 className="text-xl font-heading font-semibold text-gray-100 mb-4">
-              Informasi Kontak
-            </h3>
+            <div className="bg-white text-black px-3 py-1.5 border-2 border-white font-mono text-xs font-black uppercase tracking-wider">
+              [ DIRECT CONTACT CHANNELS ]
+            </div>
             {contacts.map((item) => {
               const Icon = item.icon;
               return (
@@ -107,14 +101,16 @@ export default function Contact() {
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="group flex items-center gap-4 p-5 rounded-xl border border-base-600/50 bg-base-800/50 hover:bg-base-700/60 hover:border-accent/40 transition-all duration-300"
+                  className="group flex items-center gap-4 p-4 border-2 border-white bg-base-800 shadow-brutal-sm hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal hover:bg-black transition-all"
                 >
-                  <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors shrink-0">
-                    <Icon size={22} />
+                  <div className="p-3 border-2 border-white bg-neo-yellow text-black shrink-0 group-hover:bg-white transition-colors">
+                    <Icon size={20} />
                   </div>
                   <div>
-                    <p className="text-xs text-muted mb-0.5">{item.label}</p>
-                    <p className="text-gray-200 font-medium text-sm group-hover:text-accent transition-colors">
+                    <p className="text-[11px] font-mono font-bold uppercase text-neo-lime">
+                      // {item.label}
+                    </p>
+                    <p className="text-white font-mono font-bold text-xs sm:text-sm group-hover:text-neo-yellow transition-colors truncate">
                       {item.value}
                     </p>
                   </div>
@@ -124,103 +120,107 @@ export default function Contact() {
           </div>
 
           {/* Right: Contact Form */}
-          <div className="lg:col-span-7 bg-base-800/40 border border-base-600/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-            <h3 className="text-xl font-heading font-semibold text-gray-100 mb-6">
-              Kirim Pesan
-            </h3>
+          <div className="lg:col-span-7 border-2 border-white bg-base-800 shadow-brutal">
+            <div className="bg-white text-black px-4 py-2 border-b-2 border-white flex items-center justify-between font-mono text-xs font-black">
+              <span>// TRANSMIT_MESSAGE.EXE</span>
+              <span className="text-neo-pink">[ACTIVE]</span>
+            </div>
 
-            {status === "sent" ? (
-              <div className="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
-                <FaCheckCircle size={40} className="mx-auto text-emerald-400 animate-bounce" />
-                <h4 className="font-heading font-semibold text-lg text-emerald-300">
-                  Pesan Terkirim!
-                </h4>
-                <p className="text-muted text-sm max-w-sm mx-auto">
-                  Terima kasih telah menghubungi. Saya akan segera membalas pesan Anda secepatnya.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+            <div className="p-6 sm:p-8">
+              {status === "sent" ? (
+                <div className="p-6 border-2 border-white bg-black text-center space-y-3 shadow-brutal-sm">
+                  <FaCheckCircle size={36} className="mx-auto text-neo-lime" />
+                  <h4 className="font-heading font-black text-lg text-white uppercase">
+                    Pesan Berhasil Diproses!
+                  </h4>
+                  <p className="font-mono text-xs text-muted max-w-sm mx-auto">
+                    Klien email dibuka otomatis untuk pengiriman final. Terima kasih!
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name-input" className="block font-mono text-xs font-bold text-gray-200 mb-1">
+                        NAMA LENGKAP <span className="text-neo-yellow">*</span>
+                      </label>
+                      <input
+                        id="name-input"
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Nama Anda"
+                        className="w-full px-3.5 py-2.5 border-2 border-white bg-black text-white font-mono text-xs focus:outline-none focus:border-neo-yellow focus:shadow-brutal-yellow transition-all placeholder:text-muted/50"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email-input" className="block font-mono text-xs font-bold text-gray-200 mb-1">
+                        EMAIL <span className="text-neo-yellow">*</span>
+                      </label>
+                      <input
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="nama@email.com"
+                        className="w-full px-3.5 py-2.5 border-2 border-white bg-black text-white font-mono text-xs focus:outline-none focus:border-neo-yellow focus:shadow-brutal-yellow transition-all placeholder:text-muted/50"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                      Nama Lengkap <span className="text-accent">*</span>
+                    <label htmlFor="subject-input" className="block font-mono text-xs font-bold text-gray-200 mb-1">
+                      SUBJEK
                     </label>
                     <input
+                      id="subject-input"
                       type="text"
-                      name="name"
-                      required
-                      value={formData.name}
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Masukkan nama Anda"
-                      className="w-full px-4 py-3 rounded-xl bg-base-900/80 border border-base-600/60 text-gray-100 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-muted/50"
+                      placeholder="Subjek/Tujuan pesan"
+                      className="w-full px-3.5 py-2.5 border-2 border-white bg-black text-white font-mono text-xs focus:outline-none focus:border-neo-yellow focus:shadow-brutal-yellow transition-all placeholder:text-muted/50"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                      Email <span className="text-accent">*</span>
+                    <label htmlFor="message-input" className="block font-mono text-xs font-bold text-gray-200 mb-1">
+                      PESAN <span className="text-neo-yellow">*</span>
                     </label>
-                    <input
-                      type="email"
-                      name="email"
+                    <textarea
+                      id="message-input"
+                      name="message"
+                      rows={4}
                       required
-                      value={formData.email}
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="nama@email.com"
-                      className="w-full px-4 py-3 rounded-xl bg-base-900/80 border border-base-600/60 text-gray-100 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-muted/50"
+                      placeholder="Tuliskan pesan atau penawaran kerja sama..."
+                      className="w-full px-3.5 py-2.5 border-2 border-white bg-black text-white font-mono text-xs focus:outline-none focus:border-neo-yellow focus:shadow-brutal-yellow transition-all placeholder:text-muted/50 resize-none"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                    Subjek
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Subjek/Tujuan pesan"
-                    className="w-full px-4 py-3 rounded-xl bg-base-900/80 border border-base-600/60 text-gray-100 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-muted/50"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                    Pesan <span className="text-accent">*</span>
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tuliskan pesan atau penawaran kerja sama..."
-                    className="w-full px-4 py-3 rounded-xl bg-base-900/80 border border-base-600/60 text-gray-100 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-muted/50 resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="w-full py-3.5 px-6 rounded-xl bg-accent text-base-900 font-semibold flex items-center justify-center gap-2 hover:bg-accent-light transition-all active:scale-[0.98] disabled:opacity-50"
-                >
-                  {status === "sending" ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-base-900 border-t-transparent rounded-full animate-spin" />
-                      Mengirim...
-                    </>
-                  ) : (
-                    <>
-                      <FaPaperPlane size={14} />
-                      Kirim Pesan
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
+                  <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="w-full py-3 px-6 border-2 border-white bg-neo-yellow text-black font-heading font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-50"
+                  >
+                    {status === "sending" ? (
+                      <span>[ MENGIRIM DATA... ]</span>
+                    ) : (
+                      <>
+                        <FaPaperPlane size={12} />
+                        <span>[ KIRIM PESAN ]</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -7,28 +7,30 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-body bg-base-900 text-gray-100 antialiased;
+    @apply font-body bg-base-900 text-gray-100 antialiased selection:bg-neo-yellow selection:text-black overflow-x-hidden;
     scrollbar-width: thin;
-    scrollbar-color: #2a2a38 transparent;
+    scrollbar-color: #FFE600 #141419;
   }
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #2a2a38; border-radius: 3px; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0a0a0c; border-left: 2px solid #2c2c36; }
+  ::-webkit-scrollbar-thumb { background: #FFE600; }
 }
 
 @layer components {
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-amber-400 to-accent-light;
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neo-yellow via-yellow-200 to-neo-lime font-black;
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .btn-brutal {
+    @apply font-heading font-bold uppercase tracking-wider text-xs px-4 py-2.5 border-2 border-white bg-neo-yellow text-black shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+  }
+
+  .card-brutal {
+    @apply border-2 border-white/80 bg-base-800 shadow-brutal transition-all;
   }
 }
