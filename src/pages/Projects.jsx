@@ -52,6 +52,14 @@ const projects = [
     image: null,
   },
   {
+    title: "Deteksi Cyberbullying Real-Time",
+    description: "Sistem deteksi cyberbullying & ujaran kebencian Bahasa Indonesia berbasis web dashboard (Streamlit). Komparasi SVM vs Naïve Bayes dengan XAI (LIME), narasi forensik otomatis via LLM (OpenRouter), scraping multi-platform (Twitter/X & TikTok via Apify), dan 3-tier dynamic disk cache.",
+    category: "Data Mining",
+    tech: ["Python", "Streamlit", "Scikit-learn", "LIME", "OpenRouter", "Apify", "Sastrawi", "TF-IDF"],
+    link: "https://github.com/Taufikh1dayat/deteksi-cyberbullying",
+    image: null,
+  },
+  {
     title: "Face & Hand Detector",
     description: "Deteksi wajah dan tangan real-time dengan gesture tracking & fitur menggambar kanvas.",
     category: "Computer Vision",
@@ -102,9 +110,16 @@ const techColors = {
   "JavaScript": "from-yellow-400 to-amber-500",
   "Chart.js": "from-rose-500 to-amber-500",
   "Git": "from-red-500 to-orange-600",
+  "Streamlit": "from-red-500 to-pink-600",
+  "Scikit-learn": "from-orange-400 to-amber-600",
+  "LIME": "from-lime-400 to-emerald-600",
+  "OpenRouter": "from-purple-500 to-indigo-600",
+  "Apify": "from-green-500 to-teal-600",
+  "Sastrawi": "from-blue-400 to-cyan-600",
+  "TF-IDF": "from-violet-400 to-purple-600",
 };
 
-const categories = ["Semua", "Web Application", "AI & Desktop", "Computer Vision", "Frontend"];
+const categories = ["Semua", "Web Application", "Data Mining", "AI & Desktop", "Computer Vision", "Frontend"];
 
 export default function Projects() {
   const [titleRef, titleVis] = useInView();
@@ -130,7 +145,7 @@ export default function Projects() {
             // ARCHIVE: SELECTED WORKS
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
-            PROJECTS &amp; KARYA
+            PROJECTS & KARYA
           </h2>
           <p className="text-muted mt-2 font-mono text-xs sm:text-sm max-w-xl">
             [SYS_QUERY::RETURN_ALL] Kumpulan aplikasi web full-stack, AI desktop, dan computer vision.

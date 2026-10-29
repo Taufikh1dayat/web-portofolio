@@ -18,8 +18,8 @@ const skills = [
   { name: "Tailwind CSS", level: 85 },
   { name: "Artificial Intelligence", level: 80 },
   { name: "Python", level: 75 },
-  { name: "Git & GitHub", level: 75 },
-  { name: "Astro", level: 70 },
+  { name: "Git & GitHub", level: 80 },
+  { name: "Machine Learning", level: 70 },
 ];
 
 const highlights = [
