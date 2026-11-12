@@ -25,7 +25,7 @@ const skills = [
 const highlights = [
   {
     icon: FaCode,
-    number: "9+",
+    number: "12+",
     title: "Proyek Selesai",
     desc: "Aplikasi Web & AI Desktop",
   },

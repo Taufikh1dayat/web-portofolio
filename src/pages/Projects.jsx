@@ -20,6 +20,14 @@ const projects = [
     image: null,
   },
   {
+    title: "YASMIN - Yayasan Studi Migran Indonesia",
+    description: "Portal advokasi, bantuan hukum pro bono, dan riset kebijakan pelindungan Pekerja Migran Indonesia (PMI). Dibangun dengan Next.js 14 App Router, Prisma ORM, PostgreSQL, dan proteksi Edge Middleware.",
+    category: "Web Application",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Prisma", "PostgreSQL"],
+    link: "https://yasmin-sigma.vercel.app/",
+    image: null,
+  },
+  {
     title: "Web Analytics Platform",
     description: "Platform analitik web modern interaktif untuk memantau pengunjung, visualisasi metrik real-time, dan insight performa situs.",
     category: "Web Application",
@@ -65,6 +73,14 @@ const projects = [
     category: "Computer Vision",
     tech: ["Python", "OpenCV", "Mediapipe"],
     link: "https://github.com/Taufikh1dayat/faceRecognition",
+    image: null,
+  },
+  {
+    title: "Prompt UI Design",
+    description: "Curated production-ready UI design prompts, tokens, and markdown specs for v0, Claude, and Cursor. Zero AI slop.",
+    category: "Frontend",
+    tech: ["Markdown", "Design Tokens", "Prompt Engineering", "UI/UX"],
+    link: "https://prompt-ui-design.vercel.app/",
     image: null,
   },
   {
@@ -117,6 +133,11 @@ const techColors = {
   "Apify": "from-green-500 to-teal-600",
   "Sastrawi": "from-blue-400 to-cyan-600",
   "TF-IDF": "from-violet-400 to-purple-600",
+  "Markdown": "from-sky-400 to-indigo-500",
+  "Design Tokens": "from-pink-500 to-rose-600",
+  "Prompt Engineering": "from-emerald-400 to-teal-600",
+  "UI/UX": "from-violet-400 to-fuchsia-600",
+  "Next.js": "from-zinc-700 to-neutral-950",
 };
 
 const categories = ["Semua", "Web Application", "Data Mining", "AI & Desktop", "Computer Vision", "Frontend"];
