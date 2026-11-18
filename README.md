@@ -38,32 +38,6 @@ Website portofolio personal yang dibangun menggunakan **React 19**, **Vite**, da
 
 ---
 
-## Panduan Memulai
-
-### 1. Clone Repository
-```bash
-git clone https://github.com/Taufikh1dayat/web-portofolio.git
-cd web-portofolio/portfolio-react
-```
-
-### 2. Install Dependensi
-```bash
-npm install
-```
-
-### 3. Jalankan Server Lokal
-```bash
-npm run dev
-```
-Buka browser dan akses `http://localhost:5173`.
-
-### 4. Build untuk Produksi
-```bash
-npm run build
-```
-
----
-
 ## Struktur Direktori
 
 ```text
